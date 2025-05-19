@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>🎮 Oyun Haritası Üret</title>
+</head>
+<body>
+    <h2>🎮 Senaryo Tabanlı Harita Üretimi</h2>
+    <form method="POST">
+        <textarea name="scenario" rows="8" cols="60" placeholder="Senaryonuzu buraya yazın...">{{ scenario }}</textarea><br><br>
+        <input type="submit" value="Gönder ve Harita Öğeleri Oluştur">
+    </form>
+
+    {% if enriched %}
+        <hr>
+        <h3>🧠 Zenginleştirilmiş Harita İçeriği:</h3>
+        <pre>{{ enriched }}</pre>
+    {% endif %}
+    {% if image_filename %}
+    <hr>
+    <h3>🗺️ Üretilen Harita Görseli:</h3>
+    <img src="{{ url_for('static', filename=image_filename) }}" width="256">
+    {% endif %}
+</body>
+</html>
+
